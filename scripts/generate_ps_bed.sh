@@ -1,5 +1,17 @@
 #!/bin/bash
 
+# -----------------------------------------------------------------------------
+# Usage: Generate_PS_bed.sh <input_vcf> <output_bed>
+# Example:
+#   bash Generate_PS_bed.sh heter.SNP.sorted.phasetag.0907.vcf.gz contig_PS.bed
+#
+# This script:
+#   1) Filters for SNPs that are phased heterozygotes
+#   2) Extracts CHROM, POS, and PS
+#   3) Groups consecutive positions with the same PS into a single BED interval
+# -----------------------------------------------------------------------------
+
+
 # Check if the correct number of arguments is provided
 if [ "$#" -ne 2 ]; then
     echo "Usage: $0 input_vcf_file output_bed_file"
