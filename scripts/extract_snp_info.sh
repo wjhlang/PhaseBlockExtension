@@ -25,6 +25,6 @@ OUTPUT_TXT="$2"
 # Execute the bcftools pipeline:
 # - Filter for phased heterozygous SNPs.
 # - Extract fields: CHROM, POS, REF, ALT, GT, and PS.
-bcftools view -v snps -i 'GT="het"' "$INPUT_VCF" \
+bcftools view -v snps -p -i 'GT="het"' "$INPUT_VCF" \
 | bcftools query -f '%CHROM\t%POS\t%REF\t%ALT\t[%GT]\t[%PS]\n' \
 > "$OUTPUT_TXT"
